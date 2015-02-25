@@ -1,36 +1,36 @@
 #include "1-Wire.h"
 
 //*********************************************************************************************
-//function  импульс сброса                                                                   //
-//argument  Порт, Пин                                                                        //
-//return    One_Wire_Success - устройство обнаружено, One_Wire_Error_No_Echo - не обнаружено,// 
-//					One_Wire_Bus_Low_Error - к.з. на линии                                   //
+//function  РёРјРїСѓР»СЊСЃ СЃР±СЂРѕСЃР°                                                                   //
+//argument  РџРѕСЂС‚, РџРёРЅ                                                                        //
+//return    One_Wire_Success - СѓСЃС‚СЂРѕР№СЃС‚РІРѕ РѕР±РЅР°СЂСѓР¶РµРЅРѕ, One_Wire_Error_No_Echo - РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРѕ,// 
+//					One_Wire_Bus_Low_Error - Рє.Р·. РЅР° Р»РёРЅРёРё                                   //
 //*********************************************************************************************
 
 uint8_t One_Wire_Reset(void)								
 {
-  uint8_t tmp;			         //временная переменная
+  uint8_t tmp;			         //РІСЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ
   uint8_t intState;
 
   // Disable interrupts.
   intState = __save_interrupt();
   __disable_interrupt();
 
-  Pin_HiZ(ONE_WIRE);                      //отпустить шину
+  Pin_HiZ(ONE_WIRE);                      //РѕС‚РїСѓСЃС‚РёС‚СЊ С€РёРЅСѓ
   if (Pin_Is_Clear(ONE_WIRE))
-  {                                       //Проверяем шину на КЗ	
+  {                                       //РџСЂРѕРІРµСЂСЏРµРј С€РёРЅСѓ РЅР° РљР—	
     __restore_interrupt(intState);        //Restore interrupts.
     return One_Wire_Bus_Low_Error;
   }		
-  Pin_Out_Low(ONE_WIRE);                  //Потянуть шину к земле
-  Delay_us(Time_Reset_Low);		  //ждать 480 микросекунд		
-  Pin_HiZ(ONE_WIRE);                      //отпустить шину
-  Delay_us(Time_Reset_Wait);	          //ждать 70 микросекунд
+  Pin_Out_Low(ONE_WIRE);                  //РџРѕС‚СЏРЅСѓС‚СЊ С€РёРЅСѓ Рє Р·РµРјР»Рµ
+  Delay_us(Time_Reset_Low);		  //Р¶РґР°С‚СЊ 480 РјРёРєСЂРѕСЃРµРєСѓРЅРґ		
+  Pin_HiZ(ONE_WIRE);                      //РѕС‚РїСѓСЃС‚РёС‚СЊ С€РёРЅСѓ
+  Delay_us(Time_Reset_Wait);	          //Р¶РґР°С‚СЊ 70 РјРёРєСЂРѕСЃРµРєСѓРЅРґ
   if (Pin_Is_Clear(ONE_WIRE)) 
-    tmp=One_Wire_Success;		  //прочитать шину
+    tmp=One_Wire_Success;		  //РїСЂРѕС‡РёС‚Р°С‚СЊ С€РёРЅСѓ
   else 
     tmp=One_Wire_Error_No_Echo;
-  Delay_us(Time_After_Reset);	          //дождаться окончания инициализации
+  Delay_us(Time_After_Reset);	          //РґРѕР¶РґР°С‚СЊСЃСЏ РѕРєРѕРЅС‡Р°РЅРёСЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё
 
   __restore_interrupt(intState);          // Restore interrupts.
 
@@ -38,8 +38,8 @@ uint8_t One_Wire_Reset(void)
 }
 
 //*********************************************************************************************
-//function  запись байта                                                                     //
-//argument  передаваемый байт, порт, пин                                                     //
+//function  Р·Р°РїРёСЃСЊ Р±Р°Р№С‚Р°                                                                     //
+//argument  РїРµСЂРµРґР°РІР°РµРјС‹Р№ Р±Р°Р№С‚, РїРѕСЂС‚, РїРёРЅ                                                     //
 //return    none                                                                             //
 //*********************************************************************************************
 void One_Wire_Write_Byte(uint8_t Byte)
@@ -50,8 +50,8 @@ void One_Wire_Write_Byte(uint8_t Byte)
 }
 
 //*********************************************************************************************
-//function  передача бита                                                                    //
-//argument  значение передаваемого бита, порт, пин                                           //
+//function  РїРµСЂРµРґР°С‡Р° Р±РёС‚Р°                                                                    //
+//argument  Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРґР°РІР°РµРјРѕРіРѕ Р±РёС‚Р°, РїРѕСЂС‚, РїРёРЅ                                           //
 //return    none                                                                             //
 //*********************************************************************************************
 void One_Wire_Write_Bit (uint8_t Bit)
@@ -63,21 +63,21 @@ void One_Wire_Write_Bit (uint8_t Bit)
   intState = __save_interrupt();
   __disable_interrupt();
 
-  Pin_Out_Low(ONE_WIRE);                  //Потянуть шину к земле	
-  Delay_us(Time_Hold_Down);	          //ждать 1 микросекунду
+  Pin_Out_Low(ONE_WIRE);                  //РџРѕС‚СЏРЅСѓС‚СЊ С€РёРЅСѓ Рє Р·РµРјР»Рµ	
+  Delay_us(Time_Hold_Down);	          //Р¶РґР°С‚СЊ 1 РјРёРєСЂРѕСЃРµРєСѓРЅРґСѓ
   if(Bit) 
-    Pin_HiZ(ONE_WIRE);                    //если передаем 1, то отпускаем шину
-  Delay_us(Time_Pulse_Delay_High);	  //задержка 59 микросекунд
-  Pin_HiZ(ONE_WIRE);                      //отпустить шину
+    Pin_HiZ(ONE_WIRE);                    //РµСЃР»Рё РїРµСЂРµРґР°РµРј 1, С‚Рѕ РѕС‚РїСѓСЃРєР°РµРј С€РёРЅСѓ
+  Delay_us(Time_Pulse_Delay_High);	  //Р·Р°РґРµСЂР¶РєР° 59 РјРёРєСЂРѕСЃРµРєСѓРЅРґ
+  Pin_HiZ(ONE_WIRE);                      //РѕС‚РїСѓСЃС‚РёС‚СЊ С€РёРЅСѓ
 
   // Restore interrupts.
   __restore_interrupt(intState);  
 } 
 
 //*********************************************************************************************
-//function  чтение байта                                                                     //
-//argument  пин, порт                                                                        //
-//return    прочитанный байт                                                                 //
+//function  С‡С‚РµРЅРёРµ Р±Р°Р№С‚Р°                                                                     //
+//argument  РїРёРЅ, РїРѕСЂС‚                                                                        //
+//return    РїСЂРѕС‡РёС‚Р°РЅРЅС‹Р№ Р±Р°Р№С‚                                                                 //
 //*********************************************************************************************
 uint8_t One_Wire_Read_Byte(void)
 {
@@ -90,9 +90,9 @@ uint8_t One_Wire_Read_Byte(void)
 }
 
 //*********************************************************************************************
-//function  чтение бита                                                                      //
-//argument  порт, пин                                                                        //
-//return    прочитанный бит                                                                  //
+//function  С‡С‚РµРЅРёРµ Р±РёС‚Р°                                                                      //
+//argument  РїРѕСЂС‚, РїРёРЅ                                                                        //
+//return    РїСЂРѕС‡РёС‚Р°РЅРЅС‹Р№ Р±РёС‚                                                                  //
 //*********************************************************************************************
 uint8_t One_Wire_Read_Bit (void)
 {
@@ -103,15 +103,15 @@ uint8_t One_Wire_Read_Bit (void)
   intState = __save_interrupt();
   __disable_interrupt();
   
-  Pin_Out_Low(ONE_WIRE);                        //Потянуть шину к земле	
+  Pin_Out_Low(ONE_WIRE);                        //РџРѕС‚СЏРЅСѓС‚СЊ С€РёРЅСѓ Рє Р·РµРјР»Рµ	
   Delay_us(Time_Hold_Down);
-  Pin_HiZ(ONE_WIRE);                            //отпустить шину
-  Delay_us(Time_Pulse_Delay_Read);	        //задержка 15 микросекунд
-  result = Pin_State(ONE_WIRE);                 //прочитать шину
-  Delay_us(Time_Pulse_Delay_Read_Wait); 	//оставшееся время
+  Pin_HiZ(ONE_WIRE);                            //РѕС‚РїСѓСЃС‚РёС‚СЊ С€РёРЅСѓ
+  Delay_us(Time_Pulse_Delay_Read);	        //Р·Р°РґРµСЂР¶РєР° 15 РјРёРєСЂРѕСЃРµРєСѓРЅРґ
+  result = Pin_State(ONE_WIRE);                 //РїСЂРѕС‡РёС‚Р°С‚СЊ С€РёРЅСѓ
+  Delay_us(Time_Pulse_Delay_Read_Wait); 	//РѕСЃС‚Р°РІС€РµРµСЃСЏ РІСЂРµРјСЏ
 
   // Restore interrupts.
   __restore_interrupt(intState);  
 
-  return result;					//возвратить результат
+  return result;					//РІРѕР·РІСЂР°С‚РёС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚
 }

@@ -11,7 +11,7 @@
 *  02.08.2013 - VER. - COMMENT                                        - SIGN.
 *******************************************************************************/
 
-//макросы для автоматического определения параметров
+//РјР°РєСЂРѕСЃС‹ РґР»СЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРіРѕ РѕРїСЂРµРґРµР»РµРЅРёСЏ РїР°СЂР°РјРµС‚СЂРѕРІ
 #define __GET_DDR(DDR_LETTER) DDR ## DDR_LETTER
 #define GET_DDR(DDR_LETTER) __GET_DDR(DDR_LETTER)
 
@@ -29,31 +29,31 @@
 //PASHGAN 2009
 //CHIPENABLE.RU
 //
-//reg : имя переменной, регистра
-//bit : позиция бита
-//val : 0 или 1
+//reg : РёРјСЏ РїРµСЂРµРјРµРЅРЅРѕР№, СЂРµРіРёСЃС‚СЂР°
+//bit : РїРѕР·РёС†РёСЏ Р±РёС‚Р°
+//val : 0 РёР»Рё 1
 ************************************************************/
 #define bit(bit)  (1<<(bit))
 
 #define clr_bit(reg, bit)       reg &= (~(1<<(bit)))
-//пример: clr_bir(PORTB, 1); //сбросить 1-й бит PORTB
+//РїСЂРёРјРµСЂ: clr_bir(PORTB, 1); //СЃР±СЂРѕСЃРёС‚СЊ 1-Р№ Р±РёС‚ PORTB
 
 #define set_bit(reg, bit)          reg |= (1<<(bit))
-//пример: set_bit(PORTB, 3); //установить 3-й бит PORTB
+//РїСЂРёРјРµСЂ: set_bit(PORTB, 3); //СѓСЃС‚Р°РЅРѕРІРёС‚СЊ 3-Р№ Р±РёС‚ PORTB
 
 #define set_bit_val(reg, bit, val) do{if ((val&1)==0) reg &= (~(1<<(bit)));\
                                   else reg |= (1<<(bit));}while(0)
-//пример: set_bit_val(PORTB, 3, 1); //установить 3-й бит PORTB
-//	  set_bit_val(PORTB, 2, 0); //сбросить 2-й бит PORTB
+//РїСЂРёРјРµСЂ: set_bit_val(PORTB, 3, 1); //СѓСЃС‚Р°РЅРѕРІРёС‚СЊ 3-Р№ Р±РёС‚ PORTB
+//	  set_bit_val(PORTB, 2, 0); //СЃР±СЂРѕСЃРёС‚СЊ 2-Р№ Р±РёС‚ PORTB
 
 #define bit_is_clr(reg, bit)    ((reg & (1<<(bit))) == 0)
-//пример: if (bit_is_clr(PORTB,1)) {...} //если бит очищен
+//РїСЂРёРјРµСЂ: if (bit_is_clr(PORTB,1)) {...} //РµСЃР»Рё Р±РёС‚ РѕС‡РёС‰РµРЅ
 
 #define bit_is_set(reg, bit)       ((reg & (1<<(bit))) != 0)
-//пример: if(bit_is_set(PORTB,2)) {...} //если бит установлен
+//РїСЂРёРјРµСЂ: if(bit_is_set(PORTB,2)) {...} //РµСЃР»Рё Р±РёС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅ
 
 #define inv_bit(reg, bit)	  reg ^= (1<<(bit))
-//пример: inv_bit(PORTB, 1); //инвертировать 1-й бит PORTB
+//РїСЂРёРјРµСЂ: inv_bit(PORTB, 1); //РёРЅРІРµСЂС‚РёСЂРѕРІР°С‚СЊ 1-Р№ Р±РёС‚ PORTB
 
 #define check_bit(reg, bit) 	(reg & (1<<(bit))) 
 
@@ -61,17 +61,17 @@
 #define SWAP_DWORD(X)   ((uint32_t)((SWAP_WORD((X) & 0xFFFF) << 16) | SWAP_WORD(((X) >> 16) & 0xFFFF)))                                    
                                     
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//	Макроопределения.
+//	РњР°РєСЂРѕРѕРїСЂРµРґРµР»РµРЅРёСЏ.
 //
-//  (C) Евгений Трифонов, Денис Железняков. 2001 - 2007 г.
-//	Версия: 2.7.1 от 18.12.2007
+//  (C) Р•РІРіРµРЅРёР№ РўСЂРёС„РѕРЅРѕРІ, Р”РµРЅРёСЃ Р–РµР»РµР·РЅСЏРєРѕРІ. 2001 - 2007 Рі.
+//	Р’РµСЂСЃРёСЏ: 2.7.1 РѕС‚ 18.12.2007
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define __MCU_Clock   F_CPU
 
-// Параметры генератора (частота генератора указывается в Гц.)
+// РџР°СЂР°РјРµС‚СЂС‹ РіРµРЅРµСЂР°С‚РѕСЂР° (С‡Р°СЃС‚РѕС‚Р° РіРµРЅРµСЂР°С‚РѕСЂР° СѓРєР°Р·С‹РІР°РµС‚СЃСЏ РІ Р“С†.)
 #ifndef __MCU_Clock
-  #warning Тактовая частота процессора (__MCU_Clock) не указана! Используется значение по-умолчанию: 9 216 000 Гц
+  #warning РўР°РєС‚РѕРІР°СЏ С‡Р°СЃС‚РѕС‚Р° РїСЂРѕС†РµСЃСЃРѕСЂР° (__MCU_Clock) РЅРµ СѓРєР°Р·Р°РЅР°! РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ РїРѕ-СѓРјРѕР»С‡Р°РЅРёСЋ: 9 216 000 Р“С†
   #define __MCU_Clock   9216000
 #endif
 
@@ -88,7 +88,7 @@
 #include <ioavr.h>
 #include <ina90.h>
 
-// Циклы
+// Р¦РёРєР»С‹
 #define Hz(Value)       ((1 / (float)(Value)) * __MCU_Clock)
 #define kHz(Value)      Hz((Value) * 0x000003E8)
 #define MHz(Value)      Hz((Value) * 0x000F4240)
@@ -100,7 +100,7 @@
 #define _cycle
 #define _cycles
 
-// Задержка
+// Р—Р°РґРµСЂР¶РєР°
 #define Delay(Value)            __delay_cycles(Value)
 #define Delay_ns(Value) 	      Delay((Value)_ns)
 #define Delay_us(Value) 	      Delay((Value)_us)
@@ -113,25 +113,25 @@
 #define Delay_Cycle(Value)      Delay(Value)
 #define Delay_Cycles(Value)	    Delay(Value)
 
-// Таймеры
+// РўР°Р№РјРµСЂС‹
 #define TC16_Compare(Div, Value)      (unsigned  int)((1 / (float)(Div)) * (Value))
 #define TC16_Overflow(Div, Value)     (unsigned  int)(0x10000 - TC16_Compare(Div, Value))
 #define TC8_Compare(Div, Value)       (unsigned char)TC16_Compare(Div, Value)
 #define TC8_Overflow(Div, Value)      (unsigned char)(0x00100 - TC8_Compare(Div, Value))
 
-// Битовые операции
+// Р‘РёС‚РѕРІС‹Рµ РѕРїРµСЂР°С†РёРё
 #define Bit(Idx)                  		(1 << (Idx))
 #define _Bit(Idx)                 		Bit(Idx)
 
-// Изменение состояния обного бита в переменной или регистре
+// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РѕР±РЅРѕРіРѕ Р±РёС‚Р° РІ РїРµСЂРµРјРµРЅРЅРѕР№ РёР»Рё СЂРµРіРёСЃС‚СЂРµ
 //
-//  Примеры:
-//      Set_Bit(TCCR1A, WGM10);       - установка бита WGM10 в регистре TCCR1A
-//      Clear_Bit(TCCR1B, CS10);      - сброс бита CS10 в регистре TCCR1B
-//      Get_Bit(TCCR1A, WGM10);       - получение значения бита WGM10 в регистре TCCR1A
-//      Invert_Bit(TCCR1B, CS10);     - инвертирование бита CS10 в регистре TCCR1B
-//      Is_Bit_Set(TCCR1A, WGM10);    - возвращает истину если бит WGM10 в регистре TCCR1A установлен
-//      Is_Bit_Clear(TCCR1B, CS10);   - возвращает истину если бит CS10 в регистре TCCR1B сброшен
+//  РџСЂРёРјРµСЂС‹:
+//      Set_Bit(TCCR1A, WGM10);       - СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚Р° WGM10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A
+//      Clear_Bit(TCCR1B, CS10);      - СЃР±СЂРѕСЃ Р±РёС‚Р° CS10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1B
+//      Get_Bit(TCCR1A, WGM10);       - РїРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ Р±РёС‚Р° WGM10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A
+//      Invert_Bit(TCCR1B, CS10);     - РёРЅРІРµСЂС‚РёСЂРѕРІР°РЅРёРµ Р±РёС‚Р° CS10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1B
+//      Is_Bit_Set(TCCR1A, WGM10);    - РІРѕР·РІСЂР°С‰Р°РµС‚ РёСЃС‚РёРЅСѓ РµСЃР»Рё Р±РёС‚ WGM10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A СѓСЃС‚Р°РЅРѕРІР»РµРЅ
+//      Is_Bit_Clear(TCCR1B, CS10);   - РІРѕР·РІСЂР°С‰Р°РµС‚ РёСЃС‚РёРЅСѓ РµСЃР»Рё Р±РёС‚ CS10 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1B СЃР±СЂРѕС€РµРЅ
 //
 #define Set_Bit(Var, BitIdx)          ((Var) |=  _Bit(BitIdx))
 #define Clear_Bit(Var, BitIdx)        ((Var) &= ~_Bit(BitIdx))
@@ -141,32 +141,32 @@
 #define Is_Bit_Set(Var, BitIdx)       (Get_Bit(Var, BitIdx) == _Bit(BitIdx))
 #define Is_Bit_Clear(Var, BitIdx)     (Get_Bit(Var, BitIdx) == 0x00)
 
-// Изменение состояния переменной или регистра по указанной маске
+// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РїРµСЂРµРјРµРЅРЅРѕР№ РёР»Рё СЂРµРіРёСЃС‚СЂР° РїРѕ СѓРєР°Р·Р°РЅРЅРѕР№ РјР°СЃРєРµ
 //
-//  Примеры:
-//      Set_Bits(TCCR1A, _Bit(WGM10) | _Bit(COM1A1));      - установка битов WGM10 и COM1A1 в регистре TCCR1A
-//      Set_Bits(TCCR1A, ~_Bit(WGM10) | _Bit(COM1A1));     - сброс бита WGM10 и установка бита COM1A1 в регистре TCCR1A
-//      Clear_Bits(TCCR1A, ~_Bit(WGM10) | _Bit(COM1A1));   - установка бита WGM10 и сброс бита COM1A1 в регистре TCCR1A
+//  РџСЂРёРјРµСЂС‹:
+//      Set_Bits(TCCR1A, _Bit(WGM10) | _Bit(COM1A1));      - СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚РѕРІ WGM10 Рё COM1A1 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A
+//      Set_Bits(TCCR1A, ~_Bit(WGM10) | _Bit(COM1A1));     - СЃР±СЂРѕСЃ Р±РёС‚Р° WGM10 Рё СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚Р° COM1A1 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A
+//      Clear_Bits(TCCR1A, ~_Bit(WGM10) | _Bit(COM1A1));   - СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚Р° WGM10 Рё СЃР±СЂРѕСЃ Р±РёС‚Р° COM1A1 РІ СЂРµРіРёСЃС‚СЂРµ TCCR1A
 //
 #define Set_Bits(Var, Mask)           ((Var) |=  (Mask))
 #define Clear_Bits(Var, Mask)         ((Var) &= ~(Mask))
 #define Invert_Bits(Var, Mask)        ((Var) ^=  (Mask))
 #define Toggle_Bits(Var, Mask)        Invert_Bits(Var, (Mask))
 
-// Изменение состояния обного бита в переменной или регистре посредством определённых флагов (шаблонов)
+// РР·РјРµРЅРµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РѕР±РЅРѕРіРѕ Р±РёС‚Р° РІ РїРµСЂРµРјРµРЅРЅРѕР№ РёР»Рё СЂРµРіРёСЃС‚СЂРµ РїРѕСЃСЂРµРґСЃС‚РІРѕРј РѕРїСЂРµРґРµР»С‘РЅРЅС‹С… С„Р»Р°РіРѕРІ (С€Р°Р±Р»РѕРЅРѕРІ)
 //
-//  Примеры:
-//      volatile Byte System_Status = 0x00;       - объявление переменной, где будут меняться флаги
+//  РџСЂРёРјРµСЂС‹:
+//      volatile Byte System_Status = 0x00;       - РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№, РіРґРµ Р±СѓРґСѓС‚ РјРµРЅСЏС‚СЊСЃСЏ С„Р»Р°РіРё
 //
-//      #define Error_Flag    System_Status, 0    - объявление флага в переменной System_Status в бите 0
-//      #define Ready_Flag    System_Status, 1    - объявление флага в переменной System_Status в бите 1
-//      #define Delay_Flag    System_Status, 3    - объявление флага в переменной System_Status в бите 3
-//      #define RX_Flag       System_Status, 6    - объявление флага в переменной System_Status в бите 6
-//      #define TX_Flag       System_Status, 8    - объявление флага в переменной System_Status в бите 8
+//      #define Error_Flag    System_Status, 0    - РѕР±СЉСЏРІР»РµРЅРёРµ С„Р»Р°РіР° РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status РІ Р±РёС‚Рµ 0
+//      #define Ready_Flag    System_Status, 1    - РѕР±СЉСЏРІР»РµРЅРёРµ С„Р»Р°РіР° РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status РІ Р±РёС‚Рµ 1
+//      #define Delay_Flag    System_Status, 3    - РѕР±СЉСЏРІР»РµРЅРёРµ С„Р»Р°РіР° РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status РІ Р±РёС‚Рµ 3
+//      #define RX_Flag       System_Status, 6    - РѕР±СЉСЏРІР»РµРЅРёРµ С„Р»Р°РіР° РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status РІ Р±РёС‚Рµ 6
+//      #define TX_Flag       System_Status, 8    - РѕР±СЉСЏРІР»РµРЅРёРµ С„Р»Р°РіР° РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status РІ Р±РёС‚Рµ 8
 //
-//      Set_Flag(Ready_Flag);         - установка бита 1 в переменной System_Status
-//      Set_Flag(RX_Flag);            - установка бита 6 в переменной System_Status
-//      Clear_Flag(TX_Flag);          - сброс бита 8 в переменной System_Status
+//      Set_Flag(Ready_Flag);         - СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚Р° 1 РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status
+//      Set_Flag(RX_Flag);            - СѓСЃС‚Р°РЅРѕРІРєР° Р±РёС‚Р° 6 РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status
+//      Clear_Flag(TX_Flag);          - СЃР±СЂРѕСЃ Р±РёС‚Р° 8 РІ РїРµСЂРµРјРµРЅРЅРѕР№ System_Status
 //
 #define Set_Flag(FlagDef)           Set_Bit(FlagDef)
 #define Clear_Flag(FlagDef)         Clear_Bit(FlagDef)
@@ -186,28 +186,28 @@
                        ((0x##Value##L >> 0x0009) & 0x0008) + ((0x##Value##L >> 0x0006) & 0x0004) +\
                        ((0x##Value##L >> 0x0003) & 0x0002) + ((0x##Value##L  & 0x0001)))
 
-// Скорость порта UART
+// РЎРєРѕСЂРѕСЃС‚СЊ РїРѕСЂС‚Р° UART
 #define Baud_Rate(BaudRate)       (unsigned  int)((unsigned long)(__MCU_Clock) / (((BaudRate) * 0x10L) - 1))
 #define Baud_RateL(BaudRate)      (unsigned char)((unsigned long)(__MCU_Clock) / (((BaudRate) * 0x10L) - 1))
 #define Baud_RateH(BaudRate)      (unsigned char)((unsigned long)(__MCU_Clock) / (((BaudRate) * 0x10L) - 1) >> 8)
 
-// Переименование типов
+// РџРµСЂРµРёРјРµРЅРѕРІР°РЅРёРµ С‚РёРїРѕРІ
 
 #ifndef bool
   #include <stdbool.h>
 #endif
 
-// Булевый тип
+// Р‘СѓР»РµРІС‹Р№ С‚РёРї
 typedef bool                  Boolean;
 
-// Целый тип, 8 бит
+// Р¦РµР»С‹Р№ С‚РёРї, 8 Р±РёС‚
 typedef unsigned char				  Byte;
 typedef unsigned char				  u08;
 typedef signed char				    ShortInt;
 typedef signed char				    s08;
 typedef signed char				    SByte;
 
-// Целый тип, 16 бит
+// Р¦РµР»С‹Р№ С‚РёРї, 16 Р±РёС‚
 typedef unsigned int				  Word;
 typedef unsigned int				  u16;
 typedef unsigned int          UInt16;
@@ -215,7 +215,7 @@ typedef signed int            SmallInt;
 typedef signed int            s16;
 typedef signed int            SInt16;
 
-// Целый тип, 32 бита
+// Р¦РµР»С‹Р№ С‚РёРї, 32 Р±РёС‚Р°
 typedef unsigned long				  DWord;
 typedef unsigned long				  Cardinal;
 typedef unsigned long				  u32;
@@ -224,7 +224,7 @@ typedef signed long				    Integer;
 typedef signed long				    s32;
 typedef signed long           SInt32;
 
-// Целый тип, 64 бита
+// Р¦РµР»С‹Р№ С‚РёРї, 64 Р±РёС‚Р°
 typedef unsigned long long    DDWord;
 typedef unsigned long	long	  u64;
 typedef unsigned long long    UInt64;
@@ -232,10 +232,10 @@ typedef signed long long	    Int64;
 typedef signed long	long	    s64;
 typedef signed long	long	    SInt64;
 
-// Вещественный тип, 32 бита
+// Р’РµС‰РµСЃС‚РІРµРЅРЅС‹Р№ С‚РёРї, 32 Р±РёС‚Р°
 typedef float                 Float;
 
-//Вещественный тип, 32 бита (если разрешено в настройках, то 64 бита)
+//Р’РµС‰РµСЃС‚РІРµРЅРЅС‹Р№ С‚РёРї, 32 Р±РёС‚Р° (РµСЃР»Рё СЂР°Р·СЂРµС€РµРЅРѕ РІ РЅР°СЃС‚СЂРѕР№РєР°С…, С‚Рѕ 64 Р±РёС‚Р°)
 typedef double                Double;
 typedef long double           Extended;
 
@@ -480,68 +480,68 @@ typedef union
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Операции с портами.
+//  РћРїРµСЂР°С†РёРё СЃ РїРѕСЂС‚Р°РјРё.
 //
-//  Синтаксис:
-//      #define <имя>   <Letter>, <Idx>, [<Level>], [<PullUp>]
+//  РЎРёРЅС‚Р°РєСЃРёСЃ:
+//      #define <РёРјСЏ>   <Letter>, <Idx>, [<Level>], [<PullUp>]
 //
-//      <Letter>  - Буква порта (A, B, C, и т. д.).
-//      <Idx>     - Номер вывода порта (0-7).
-//      <Level>   - Активный уровень. (High или Low, если не указан, то High);
-//                    High - логическая единица;
-//                    Low  - логический ноль.
-//      <PullUp>  - Внешний подтягивающий резистор. (On или Off, если не указан, то Off);
-//                    On  - используется внешний подтягивающий резистор;
-//                    Off - внешнего подтягивающего резастора нет.
+//      <Letter>  - Р‘СѓРєРІР° РїРѕСЂС‚Р° (A, B, C, Рё С‚. Рґ.).
+//      <Idx>     - РќРѕРјРµСЂ РІС‹РІРѕРґР° РїРѕСЂС‚Р° (0-7).
+//      <Level>   - РђРєС‚РёРІРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ. (High РёР»Рё Low, РµСЃР»Рё РЅРµ СѓРєР°Р·Р°РЅ, С‚Рѕ High);
+//                    High - Р»РѕРіРёС‡РµСЃРєР°СЏ РµРґРёРЅРёС†Р°;
+//                    Low  - Р»РѕРіРёС‡РµСЃРєРёР№ РЅРѕР»СЊ.
+//      <PullUp>  - Р’РЅРµС€РЅРёР№ РїРѕРґС‚СЏРіРёРІР°СЋС‰РёР№ СЂРµР·РёСЃС‚РѕСЂ. (On РёР»Рё Off, РµСЃР»Рё РЅРµ СѓРєР°Р·Р°РЅ, С‚Рѕ Off);
+//                    On  - РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІРЅРµС€РЅРёР№ РїРѕРґС‚СЏРіРёРІР°СЋС‰РёР№ СЂРµР·РёСЃС‚РѕСЂ;
+//                    Off - РІРЅРµС€РЅРµРіРѕ РїРѕРґС‚СЏРіРёРІР°СЋС‰РµРіРѕ СЂРµР·Р°СЃС‚РѕСЂР° РЅРµС‚.
 //
-//  Описание макрокоманд:
-//      Pin_HiZ (Set_Pin_HiZ)             - если PullUp = Off, то вывода порта устанавливается в "третье" (Hi-Z) состояние;
-//      Pin_PullUp_IO (Set_Pin_PullUp_IO) - установка вывода порта для работы с внешним "подтягивающим" резистором;
-//      Pin_In (Set_Pin_In)               - установка вывода порта как вход; (Z-состояние. ВысокоОмный вход)
-//      Pin_In_PullUp(Set_Pin_In_PullUp)  - установка вывода порта как вход; (Подтяжка - pull-up. Вывод как бы подсоединен к питанию МК через резистор 40 КОм)
-//      Pin_Out (Set_Pin_Out)             - установка вывода порта как выход;
-//      Pin_On (Set_Pin_On)               - установка активного логического уровня на выводе порта;
-//      Pin_High (Set_Pin_High)           - установка "единичного" логического уровня на выводе порта;
-//      Pin_Off (Set_Pin_Off)             - установка неактивного логического уровня на выводе порта;
-//      Pin_Low (Set_Pin_Low)             - установка "нулевого" логического уровня на выводе порта;
-//      Pin_Signal (Get_Pin_Signal)       - проверка логического уровня на выводе порта;
-//      Pin_State (Get_Pin_State)         - проверка логического уровня на выводе порта;
-//      Pin_Change (Change_Pin_Signal)    - изменение логического уровня на выводе порта на противоположное;
-//      Pin_Invert (Invert_Pin_Signal)    - аналогично Pin_Change;
-//      Pin_Out_On (Set_Pin_Out_On)       - установка вывода порта как выход и установка активного логического уровня;
-//      Pin_Out_Off (Set_Pin_Out_Off)     - установка вывода порта как выход и установка неактивного логического уровня;
-//      Pin_Out_High (Set_Pin_Out_High)   - установка вывода порта как выход и установка единичного логического уровня на выводе порта;
-//      Pin_Out_Low (Set_Pin_Out_Low)     - установка вывода порта как выход и установка нулевого логического уровня на выводе порта.
-//      Pin_SetVal (Set_Pin, Val)         - Установка вывода порта как бит
-//      Pin_ClrVal (Clr_Pin, Val)         - Сброс вывода порта как бит
+//  РћРїРёСЃР°РЅРёРµ РјР°РєСЂРѕРєРѕРјР°РЅРґ:
+//      Pin_HiZ (Set_Pin_HiZ)             - РµСЃР»Рё PullUp = Off, С‚Рѕ РІС‹РІРѕРґР° РїРѕСЂС‚Р° СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РІ "С‚СЂРµС‚СЊРµ" (Hi-Z) СЃРѕСЃС‚РѕСЏРЅРёРµ;
+//      Pin_PullUp_IO (Set_Pin_PullUp_IO) - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІРЅРµС€РЅРёРј "РїРѕРґС‚СЏРіРёРІР°СЋС‰РёРј" СЂРµР·РёСЃС‚РѕСЂРѕРј;
+//      Pin_In (Set_Pin_In)               - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС…РѕРґ; (Z-СЃРѕСЃС‚РѕСЏРЅРёРµ. Р’С‹СЃРѕРєРѕРћРјРЅС‹Р№ РІС…РѕРґ)
+//      Pin_In_PullUp(Set_Pin_In_PullUp)  - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС…РѕРґ; (РџРѕРґС‚СЏР¶РєР° - pull-up. Р’С‹РІРѕРґ РєР°Рє Р±С‹ РїРѕРґСЃРѕРµРґРёРЅРµРЅ Рє РїРёС‚Р°РЅРёСЋ РњРљ С‡РµСЂРµР· СЂРµР·РёСЃС‚РѕСЂ 40 РљРћРј)
+//      Pin_Out (Set_Pin_Out)             - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ;
+//      Pin_On (Set_Pin_On)               - СѓСЃС‚Р°РЅРѕРІРєР° Р°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_High (Set_Pin_High)           - СѓСЃС‚Р°РЅРѕРІРєР° "РµРґРёРЅРёС‡РЅРѕРіРѕ" Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_Off (Set_Pin_Off)             - СѓСЃС‚Р°РЅРѕРІРєР° РЅРµР°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_Low (Set_Pin_Low)             - СѓСЃС‚Р°РЅРѕРІРєР° "РЅСѓР»РµРІРѕРіРѕ" Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_Signal (Get_Pin_Signal)       - РїСЂРѕРІРµСЂРєР° Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_State (Get_Pin_State)         - РїСЂРѕРІРµСЂРєР° Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_Change (Change_Pin_Signal)    - РёР·РјРµРЅРµРЅРёРµ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р° РЅР° РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРµ;
+//      Pin_Invert (Invert_Pin_Signal)    - Р°РЅР°Р»РѕРіРёС‡РЅРѕ Pin_Change;
+//      Pin_Out_On (Set_Pin_Out_On)       - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° Р°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ;
+//      Pin_Out_Off (Set_Pin_Out_Off)     - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° РЅРµР°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ;
+//      Pin_Out_High (Set_Pin_Out_High)   - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° РµРґРёРЅРёС‡РЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°;
+//      Pin_Out_Low (Set_Pin_Out_Low)     - СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° РЅСѓР»РµРІРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°.
+//      Pin_SetVal (Set_Pin, Val)         - РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє Р±РёС‚
+//      Pin_ClrVal (Clr_Pin, Val)         - РЎР±СЂРѕСЃ РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє Р±РёС‚
 //      Pin_Is_Clear
 //      Pin_Is_Set
 //      Pin_Is_Off
 //      Pin_Is_On
 //
-//  Примечания:
-//      1. Если в определении вывода порта указано, что используется внешний подтягивающий
-//         резистор (PullUp = On), то макрокоманды Pin_In и Pin_Out выполняют действия,
-//         аналогичные макрокоманде Pin_PullUp_IO.
-//      2. В скобках указаны макрокоманды, выполняющие аналогичные действия, но параметры для
-//         них передаются не через определение define, а также как в функцию.
-//      3. В определении define последние два параметра можно не указывать, но ЗАПЯТЫЕ ОПУСКАТЬ НЕЛЬЗЯ.
+//  РџСЂРёРјРµС‡Р°РЅРёСЏ:
+//      1. Р•СЃР»Рё РІ РѕРїСЂРµРґРµР»РµРЅРёРё РІС‹РІРѕРґР° РїРѕСЂС‚Р° СѓРєР°Р·Р°РЅРѕ, С‡С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІРЅРµС€РЅРёР№ РїРѕРґС‚СЏРіРёРІР°СЋС‰РёР№
+//         СЂРµР·РёСЃС‚РѕСЂ (PullUp = On), С‚Рѕ РјР°РєСЂРѕРєРѕРјР°РЅРґС‹ Pin_In Рё Pin_Out РІС‹РїРѕР»РЅСЏСЋС‚ РґРµР№СЃС‚РІРёСЏ,
+//         Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ РјР°РєСЂРѕРєРѕРјР°РЅРґРµ Pin_PullUp_IO.
+//      2. Р’ СЃРєРѕР±РєР°С… СѓРєР°Р·Р°РЅС‹ РјР°РєСЂРѕРєРѕРјР°РЅРґС‹, РІС‹РїРѕР»РЅСЏСЋС‰РёРµ Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ РґРµР№СЃС‚РІРёСЏ, РЅРѕ РїР°СЂР°РјРµС‚СЂС‹ РґР»СЏ
+//         РЅРёС… РїРµСЂРµРґР°СЋС‚СЃСЏ РЅРµ С‡РµСЂРµР· РѕРїСЂРµРґРµР»РµРЅРёРµ define, Р° С‚Р°РєР¶Рµ РєР°Рє РІ С„СѓРЅРєС†РёСЋ.
+//      3. Р’ РѕРїСЂРµРґРµР»РµРЅРёРё define РїРѕСЃР»РµРґРЅРёРµ РґРІР° РїР°СЂР°РјРµС‚СЂР° РјРѕР¶РЅРѕ РЅРµ СѓРєР°Р·С‹РІР°С‚СЊ, РЅРѕ Р—РђРџРЇРўР«Р• РћРџРЈРЎРљРђРўР¬ РќР•Р›Р¬Р—РЇ.
 //
-//  Примеры:
+//  РџСЂРёРјРµСЂС‹:
 //      #define Example1    B, 5, Low,
 //      #define Example2    B, 5,,
 //      #define Example3    B, 5, Low, On
 //      #define Example4    B, 5,, Off
 //
-//      Pin_Out(Example1);	- установка вывода 5 порта В на выход;
-//      Pin_On(Example1);		- установка указанного активного уровня (Low) на выводе 5 порта B.
+//      Pin_Out(Example1);	- СѓСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° 5 РїРѕСЂС‚Р° Р’ РЅР° РІС‹С…РѕРґ;
+//      Pin_On(Example1);		- СѓСЃС‚Р°РЅРѕРІРєР° СѓРєР°Р·Р°РЅРЅРѕРіРѕ Р°РєС‚РёРІРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ (Low) РЅР° РІС‹РІРѕРґРµ 5 РїРѕСЂС‚Р° B.
 //
-//  Пример к примечанию 2:
-//      Макрокоманда Set_Pin_On(B, 5, Low, On) выполнит аналогичные действия, что и команда Pin_On(Example3)
+//  РџСЂРёРјРµСЂ Рє РїСЂРёРјРµС‡Р°РЅРёСЋ 2:
+//      РњР°РєСЂРѕРєРѕРјР°РЅРґР° Set_Pin_On(B, 5, Low, On) РІС‹РїРѕР»РЅРёС‚ Р°РЅР°Р»РѕРіРёС‡РЅС‹Рµ РґРµР№СЃС‚РІРёСЏ, С‡С‚Рѕ Рё РєРѕРјР°РЅРґР° Pin_On(Example3)
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Основные операции с портами
+// РћСЃРЅРѕРІРЅС‹Рµ РѕРїРµСЂР°С†РёРё СЃ РїРѕСЂС‚Р°РјРё
 #define Set_PORT_Bit(Ltr, Idx)        (PORT##Ltr |=  _Bit(Idx))
 #define Clr_PORT_Bit(Ltr, Idx)        (PORT##Ltr &= ~_Bit(Idx))
 #define Invert_PORT_Bit(Ltr, Idx)     (PORT##Ltr ^=  _Bit(Idx))
@@ -554,39 +554,39 @@ typedef union
 #define Toggle_DDR_Bit(Ltr, Idx)      Invert_DDR_Bit(Ltr, Idx)
 #define Get_PIN_State(Ltr, Idx)       (PIN##Ltr  &  _Bit(Idx))
 
-// Установка вывода порта в третье состояние (Hi-Z)
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РІ С‚СЂРµС‚СЊРµ СЃРѕСЃС‚РѕСЏРЅРёРµ (Hi-Z)
 #define Set_Pin_HiZ(Ltr, Idx, Level, PullUp)         { Clr_DDR_Bit(Ltr, Idx); Clr_PORT_Bit(Ltr, Idx); }
 #define Pin_HiZ(PortDef)                             Set_Pin_HiZ(PortDef)
 
-// Установка вывода порта для работы с внешним подтягивающим резистором
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РІРЅРµС€РЅРёРј РїРѕРґС‚СЏРіРёРІР°СЋС‰РёРј СЂРµР·РёСЃС‚РѕСЂРѕРј
 #define SetPinPullUp(Ltr, Idx)
 #define SetPinPullUpOff(Ltr, Idx)
 #define SetPinPullUpOn(Ltr, Idx)                     Clr_PORT_Bit(Ltr, Idx)
 #define Set_Pin_PullUp_IO(Ltr, Idx, Level, PullUp)   { Clr_DDR_Bit(Ltr, Idx); SetPinPullUp##PullUp(Ltr, Idx); }
 #define Pin_PullUp_IO(PortDef)                       Set_Pin_PullUp_IO(PortDef)
 
-// Установка вывода порта как вход
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС…РѕРґ
 #define Set_Pin_In(Ltr, Idx, Level, PullUp)          Set_Pin_PullUp_IO(Ltr, Idx, Level, PullUp)
 #define Set_Pin_In_PullUp(Ltr, Idx, Level, PullUp)   { Clr_DDR_Bit(Ltr, Idx); Set_PORT_Bit(Ltr, Idx); }
 #define Pin_In(PortDef)                              Set_Pin_In(PortDef)
 #define Pin_In_PullUp(PortDef)                       Set_Pin_In_PullUp(PortDef)
 
-// Установка вывода порта как выход
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ
 #define SetPinOut(Ltr, Idx)                          Set_DDR_Bit(Ltr, Idx)
 #define SetPinOutOff(Ltr, Idx)                       Set_DDR_Bit(Ltr, Idx)
 #define SetPinOutOn(Ltr, Idx)                        Clr_DDR_Bit(Ltr, Idx)
 #define Set_Pin_Out(Ltr, Idx, Level, PullUp)         { SetPinOut##PullUp(Ltr, Idx); SetPinPullUp##PullUp(Ltr, Idx); }
 #define Pin_Out(PortDef)	                           Set_Pin_Out(PortDef)
 
-// Установка вывода порта как бит
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє Р±РёС‚
 #define Get_Port(Ltr)                                   PORT##Ltr                                             
 #define Set_Pin_Bit(Ltr, Idx, Level, PullUp, Val)       { Get_Port(Ltr) |= (Val << Idx); }
 #define Pin_SetVal(PortDef, Val)                        Set_Pin_Bit(PortDef, Val)
-// Сброс вывода порта как бит
+// РЎР±СЂРѕСЃ РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє Р±РёС‚
 #define Clr_Pin_Bit(Ltr, Idx, Level, PullUp, Val)       { Get_Port(Ltr) &= ~(Val << Idx); }
 #define Pin_ClrVal(PortDef, Val)                        Clr_Pin_Bit(PortDef, Val)
 
-// Установка активного логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° Р°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define SetPin(Ltr, Idx)                             Set_PORT_Bit(Ltr, Idx)
 #define SetPinHighOn(Ltr, Idx)	                     Clr_DDR_Bit(Ltr, Idx)
 #define SetPinHighOff(Ltr, Idx)	                     Set_PORT_Bit(Ltr, Idx)
@@ -599,19 +599,19 @@ typedef union
 #define Set_Pin_On(Ltr, Idx, Level, PullUp)	         SetPin##Level##PullUp(Ltr, Idx)
 #define Pin_On(PortDef)                              Set_Pin_On(PortDef)
 
-// Установка вывода порта как выход и установка активного логического уровня
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° Р°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ
 #define Set_Pin_Out_On(Ltr, Idx, Level, PullUp)      { Set_Pin_Out(Ltr, Idx, Level, PullUp); Set_Pin_On(Ltr, Idx, Level, PullUp); }
 #define Pin_Out_On(PortDef)                          Set_Pin_Out_On(PortDef)
 
-// Установка единичного логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РµРґРёРЅРёС‡РЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define Set_Pin_High(Ltr, Idx, Level, PullUp)        Set_Pin_On(Ltr, Idx, High, PullUp)
 #define Pin_High(PortDef)                            Set_Pin_High(PortDef)
 
-// Установка вывода порта как выход и установка единичного логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° РµРґРёРЅРёС‡РЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define Set_Pin_Out_High(Ltr, Idx, Level, PullUp)    { Set_Pin_Out(Ltr, Idx, Level, PullUp); Set_Pin_High(Ltr, Idx, Level, PullUp); }
 #define Pin_Out_High(PortDef)                        Set_Pin_Out_High(PortDef)
 
-// Установка неактивного логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РЅРµР°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define ClrPin(Ltr, Idx)                             Clr_PORT_Bit(Ltr, Idx)
 #define ClrPinLow(Ltr, Idx)	                         Set_PORT_Bit(Ltr, Idx)
 #define ClrPinHigh(Ltr, Idx)	                       Clr_PORT_Bit(Ltr, Idx)
@@ -624,19 +624,19 @@ typedef union
 #define Set_Pin_Off(Ltr, Idx, Level, PullUp)	       ClrPin##Level##PullUp(Ltr, Idx)
 #define Pin_Off(PortDef)	                           Set_Pin_Off(PortDef)
 
-// Установка неактивного логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РЅРµР°РєС‚РёРІРЅРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define Set_Pin_Out_Off(Ltr, Idx, Level, PullUp)     { Set_Pin_Out(Ltr, Idx, Level, PullUp); Set_Pin_Off(Ltr, Idx, Level, PullUp); }
 #define Pin_Out_Off(PortDef)                         Set_Pin_Out_Off(PortDef)
 
-// Установка нулевого логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РЅСѓР»РµРІРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define Set_Pin_Low(Ltr, Idx, Level, PullUp)         Set_Pin_Off(Ltr, Idx, High, PullUp)
 #define Pin_Low(PortDef)                             Set_Pin_Low(PortDef)
 
-// Установка вывода порта как выход и установка нулевого логического уровня на выводе порта
+// РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° РїРѕСЂС‚Р° РєР°Рє РІС‹С…РѕРґ Рё СѓСЃС‚Р°РЅРѕРІРєР° РЅСѓР»РµРІРѕРіРѕ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define Set_Pin_Out_Low(Ltr, Idx, Level, PullUp)     { Set_Pin_Out(Ltr, Idx, Level, PullUp); Set_Pin_Low(Ltr, Idx, Level, PullUp); }
 #define Pin_Out_Low(PortDef)                         Set_Pin_Out_Low(PortDef)
 
-// Проверка логического уровня на выводе порта
+// РџСЂРѕРІРµСЂРєР° Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р°
 #define GetPinSignal(Ltr, Idx)	                     Get_PIN_State(Ltr, Idx)
 #define GetPinSignalLow(Ltr, Idx)	                   (!Get_PIN_State(Ltr, Idx))
 #define GetPinSignalHigh(Ltr, Idx)	                 Get_PIN_State(Ltr, Idx)
@@ -646,13 +646,13 @@ typedef union
 #define Pin_State(PortDef)                           Get_Pin_Signal(PortDef)
 #define Test_Pin(PortDef)                            Get_Pin_Signal(PortDef)
 
-//Проверка состояния порта
+//РџСЂРѕРІРµСЂРєР° СЃРѕСЃС‚РѕСЏРЅРёСЏ РїРѕСЂС‚Р°
 #define Pin_Is_Clear(PortDef)                        (!Get_Pin_Signal(PortDef))
 #define Pin_Is_Set(PortDef)                          Get_Pin_Signal(PortDef)
 #define Pin_Is_Off(PortDef)                          (!Get_Pin_Signal(PortDef))
 #define Pin_Is_On(PortDef)                           Get_Pin_Signal(PortDef)
 
-// Изменение логического уровня на выводе порта на противоположное
+// РР·РјРµРЅРµРЅРёРµ Р»РѕРіРёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРІРЅСЏ РЅР° РІС‹РІРѕРґРµ РїРѕСЂС‚Р° РЅР° РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРµ
 #define Invert(Ltr, Idx)                             Invert_PORT_Bit(Ltr, Idx)
 #define InvertOff(Ltr, Idx)                          Invert_PORT_Bit(Ltr, Idx)
 #define InvertOn(Ltr, Idx)                           Invert_DDR_Bit(Ltr, Idx)
@@ -672,7 +672,7 @@ typedef union
 #define BYTES(Value)    ((Byte *) & (Value))
 #define WORDS(Value)    ((Word *) & (Value))
 
-// Конфигурационные биты и биты блокировки
+// РљРѕРЅС„РёРіСѓСЂР°С†РёРѕРЅРЅС‹Рµ Р±РёС‚С‹ Рё Р±РёС‚С‹ Р±Р»РѕРєРёСЂРѕРІРєРё
 #define _DataToZByte(Addr, Value)     __AddrToZByteToSPMCR_LPM((void __flash *)(Addr), (Value))
 #define _DataToR0Byte(Addr, Value)    __DataToR0ByteToSPMCR_SPM((Addr), (Value))
 #define Get_Lock_Bits()               _DataToZByte(0x0001, 0x09)
