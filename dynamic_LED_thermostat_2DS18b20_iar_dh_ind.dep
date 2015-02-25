@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1611939976</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL.r90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\RTOS\HAL.c</file>
+      <file>$PROJ_DIR$\serial\serial.h</file>
+      <file>$PROJ_DIR$\RTOS\EERTOSHAL.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\EERTOS.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$PROJ_DIR$\RTOS\EERTOS.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom8a.inc</file>
+      <file>$PROJ_DIR$\Debug\Exe\u7_dynamic_LED_thermostat_2DS18b20_iar_dh_ind.d90</file>
+      <file>$PROJ_DIR$\CRC\CRC.c</file>
+      <file>$TOOLKIT_DIR$\inc\ina90.h</file>
+      <file>$PROJ_DIR$\RTOS\EERTOS.c</file>
+      <file>$PROJ_DIR$\RTOS\HAL.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\1-Wire\1-wire.c</file>
+      <file>$PROJ_DIR$\7Seg\indicator_2f.c</file>
+      <file>$PROJ_DIR$\serial\serial.c</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg1toim.xcl</file>
+      <file>$PROJ_DIR$\compilers\compilers.h</file>
+      <file>$PROJ_DIR$\ds18b20\ds18b20.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\serial.r90</file>
+      <file>$PROJ_DIR$\Debug\Exe\dynamic_LED_thermostat_2DS18b20_iar_dh_ind.d90</file>
+      <file>$TOOLKIT_DIR$\inc\inavr.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL.pbi</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm8a.xcl</file>
+      <file>$PROJ_DIR$\macros\macros.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\serial.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-1t-ec_mul-n.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\dynamic_LED_thermostat_2DS18b20_iar_dh_ind.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\iom8a.h</file>
+      <file>$PROJ_DIR$\Debug\List\dynamic_LED_thermostat_2DS18b20_iar_dh_ind.map</file>
+      <file>$PROJ_DIR$\Debug\Exe\ee_dynamic_LED_thermostat_2DS18b20_iar_dh_ind.eep</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EERTOS.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$PROJ_DIR$\RTOS\EERTOSHAL.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EERTOSHAL.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-1t-ec_mul-n.r90</file>
+      <file>$PROJ_DIR$\7Seg\indicator_2f.h</file>
+      <file>$TOOLKIT_DIR$\inc\comp_a90.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EERTOSHAL.r90</file>
+      <file>$PROJ_DIR$\Debug\List\EERTOS.i</file>
+      <file>$PROJ_DIR$\Debug\List\EERTOSHAL.i</file>
+      <file>$PROJ_DIR$\7Seg\port_macros.h</file>
+      <file>$PROJ_DIR$\Debug\List\1-wire.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\indicator_2f.pbi</file>
+      <file>$PROJ_DIR$\ds18b20\ds18b20.h</file>
+      <file>$PROJ_DIR$\Debug\List\CRC.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\1-wire.r90</file>
+      <file>$PROJ_DIR$\Debug\List\ds18b20.i</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\1-wire.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\CRC.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\HAL.i</file>
+      <file>$PROJ_DIR$\Debug\Exe\u8_dynamic_LED_thermostat_2DS18b20_iar_dh_ind.d90</file>
+      <file>$PROJ_DIR$\Debug\List\serial.i</file>
+      <file>$PROJ_DIR$\1-Wire\1-Wire.h</file>
+      <file>$PROJ_DIR$\CRC\CRC.h</file>
+      <file>$PROJ_DIR$\Debug\List\indicator_2f.i</file>
+      <file>$PROJ_DIR$\Debug\List\main.i</file>
+      <file>$PROJ_DIR$\Debug\Obj\CRC.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\ds18b20.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\fl_dynamic_LED_thermostat_2DS18b20_iar_dh_ind.hex</file>
+      <file>$PROJ_DIR$\Debug\Obj\indicator_2f.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\ds18b20.r90</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 25 35 11 63 71 36</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RTOS\HAL.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 62 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 30 41 10 8 59 26 21 13 29 37 44 0 3 32 42 34 45 48 15</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 15 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 29 13 48 59</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RTOS\EERTOSHAL.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 51 49</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30 8 41 59 10 23 21 13 15 29 37 26 44 0 3 32 42 34 45 40 48</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 40 15 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 29 13 48 59</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\CRC\CRC.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 56 69</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42 26 37 0 21 44 10 30 8 23 3 32 66 41 34 45</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 66 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RTOS\EERTOS.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 50 38</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0 32 44 45 3 30 15 40 29 37 26 42 34 21 8 23 41 10 13 59 48 9</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 9 15 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 29 13 48 59 40</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 68 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8 65 23 26 21 47 9 30 41 40 29 55 37 44 0 3 32 42 34 45 10 13 59 48 15 66 52</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 29 13 48 59 9 15 40 55 65 66 47 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\1-Wire\1-wire.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 53 57</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 26 3 0 32 44 29 8 13 59 34 45 37 42 65 10 48 30 23 41</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 65 29 8 34 45 10 13 26 30 48 59 21 37 44 23 0 32 42 41 3</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\7Seg\indicator_2f.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 67 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30 23 34 21 8 41 52 37 26 44 0 3 32 42 45 47 10</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 47 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\serial\serial.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 64 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 23 30 41 8 10 5 37 26 44 0 3 32 42 34 45</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 5 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\ds18b20\ds18b20.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 58 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41 30 29 10 66 23 8 21 13 59 26 65 37 44 0 3 32 42 34 45 55 48</file>
+        </tool>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 55 21 37 44 23 0 32 42 41 3 8 34 45 10 26 30 65 29 13 48 59 66</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\dynamic_LED_thermostat_2DS18b20_iar_dh_ind.d90</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 35 11 63 71 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 28 20 57 69 73 38 49 2 72 39 24 46</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
